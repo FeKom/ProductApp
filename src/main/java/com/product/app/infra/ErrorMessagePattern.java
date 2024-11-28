@@ -1,4 +1,4 @@
-package infra;
+package com.product.app.infra;
 
 import org.springframework.http.HttpStatus;
 

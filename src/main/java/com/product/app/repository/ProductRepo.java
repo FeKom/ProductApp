@@ -1,4 +1,4 @@
-package repository;
+package com.product.app.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,11 +9,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import model.ProductModel;
+import com.product.app.model.ProductModel;
 
 @Repository
 public interface ProductRepo extends JpaRepository<ProductModel, UUID> {
-    @Query("SELECT p FROM ProductModel p WHERE p.tittle Like %:searchTerm%")
+    @Query("SELECT p FROM ProductModel p WHERE p.title Like %:searchTerm%")
     Optional<List<ProductModel>> findByProductName(@Param("searchTerm")String searchTerm);
     
 }

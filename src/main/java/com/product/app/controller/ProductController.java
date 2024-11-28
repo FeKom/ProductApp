@@ -1,12 +1,12 @@
-package controller;
+package com.product.app.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import dtos.ProductDto;
+import com.product.app.dtos.ProductDto;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import model.ProductModel;
-import service.ProductService;
+import com.product.app.model.ProductModel;
+import com.product.app.service.ProductService;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-
 @RestController
 public class ProductController {
 
@@ -32,7 +31,9 @@ public class ProductController {
 
     @PostMapping("/product")
     @Transactional
-    public ResponseEntity<ProductModel> saveProduct (@RequestBody @Valid ProductDto productDto) {
+    public ResponseEntity<ProductModel> saveProduct (@Valid @RequestBody ProductDto productDto) {
+        System.out.println(productDto);
+
         var ProductModel = new ProductModel();
         BeanUtils.copyProperties(productDto, ProductModel);
         
@@ -51,9 +52,9 @@ public class ProductController {
     }
 
     @GetMapping("/product/search")
-    public ResponseEntity<Optional<List<ProductModel>>> searchProductByName (@RequestParam String tittle) {
+    public ResponseEntity<Optional<List<ProductModel>>> searchProductByName (@RequestParam String title) {
 
-        return ResponseEntity.status(HttpStatus.OK).body(productService.searchProductByName(tittle));
+        return ResponseEntity.status(HttpStatus.OK).body(productService.searchProductByName(title));
     }
     
 }
