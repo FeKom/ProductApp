@@ -1,4 +1,4 @@
-package model;
+package com.product.app.model;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -10,22 +10,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_products")
+@Table(name = "product")
 public class ProductModel implements Serializable {
     private static final long serialVersionUID= 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID productId;
-    private String tittle;
+    private String title;
     private double price;
     private double review;
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String title) {
+        this.title = title;
     }
     public double getPrice() {
         return price;

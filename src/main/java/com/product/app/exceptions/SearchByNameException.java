@@ -1,4 +1,4 @@
-package exceptions;
+package com.product.app.exceptions;
 
 public class SearchByNameException extends RuntimeException{
     

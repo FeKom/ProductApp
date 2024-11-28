@@ -1,4 +1,4 @@
-package service;
+package com.product.app.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,10 +7,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import exceptions.SearchByNameException;
+import com.product.app.exceptions.SearchByNameException;
 import jakarta.transaction.Transactional;
-import model.ProductModel;
-import repository.ProductRepo;
+import com.product.app.model.ProductModel;
+import com.product.app.repository.ProductRepo;
 
 @Service
 public class ProductService {
