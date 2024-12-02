@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.5</version>
+		<version>3.3.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>product.app</groupId>
-	<artifactId>app</artifactId>
+	<groupId>com.productApp</groupId>
+	<artifactId>productApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>app</name>
+	<name>productApp</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -41,6 +41,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.0.4</version>
 		</dependency>
 
 		<dependency>

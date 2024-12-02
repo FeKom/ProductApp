@@ -7,7 +7,6 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.product.app.exceptions.SearchByNameException;
 import jakarta.transaction.Transactional;
 import com.product.app.model.ProductModel;
 import com.product.app.repository.ProductRepo;
@@ -33,14 +32,11 @@ public class ProductService {
     }
 
     public Optional<List<ProductModel>> searchProductByName(String searchTerm) {
-
-        if (searchTerm.isEmpty() || searchTerm.isBlank()) {
-            throw new SearchByNameException();
-        }else {
+    
             return productRepo.findByProductName(searchTerm);
         }
         
     }
 
 
-}
+
