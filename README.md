@@ -1,71 +1,150 @@
-# Products - docker + spring boot + mysql
+# **ProductApp API**
 
-## Rodando
+Uma API para gerenciamento de produtos, construída com ***Java 17, Spring Boot, Docker, MySQL e Swagger.***
 
-Banco de dados:
+# **Visão Geral**
 
-```sh
-docker-compose up -d
+- A ProductApp API permite:
+
+- Cadastrar novos produtos
+
+- Listar todos os produtos
+
+- Buscar produtos por nome
+
+- Recuperar um produto pelo ID
+
+[!NOTE]
+A documentação da API pode ser acessada via Swagger UI.
+
+# **Tecnologias Utilizadas**
+
+- Java 17 🏗️
+
+- Spring Boot 🚀
+
+- MySQL 🗄️
+
+- Docker 🐳
+
+- Swagger 📜
+
+# **Configuração Inicial**
+
+## Pré-requisitos
+
+- Java 17 JDK
+
+- Docker e Docker Compose
+
+- MySQL (ou utilize a versão Dockerizada)
+
+- Maven (para compilar o projeto)
+
+# **Instalação**
+
+## Clone o repositório
+```
+git clone https://github.com/FeKom/ProductApp.git
+cd ProductApp
 ```
 
-Aplicação:
+## Compile o projeto
 
-```sh
-mvn spring-boot:run
+```
+mvn clean install
 ```
 
-## Troubleshooting
+## Execute com Docker 
 
-### Volumes
-
-Analisando volumes: 
-
-> docker volume ls
-
-Removendo volumes:
-
-Referencia: https://stackoverflow.com/questions/63617333/why-is-docker-compose-creating-mysql-container-with-wrong-name
-
-```sh 
-docker volume rm {{volume_id}} -f
+```
+docker-compose up --build
 ```
 
-Executando Controller da Aplicação  
+A API estará disponível em: http://localhost:4000
 
-## CURL GET ALL METHOD
+[!WARNING]
+Se os containers já estiverem em execução, essa ação pode sobrescrevê-los.
 
-```sh
-curl -X 'GET' \
-  'http://localhost:4000/product' \
-  -H 'accept: */*'
+# **Endpoints da API**
+
+## Cadastrar um Produto 
+
+### POST `/product`
+
+### Request Body:
+```
+{
+"title": "Product Name",
+"price": 19.99,
+"review": 5
+}
 ```
 
-## CURL POST METHOD
+### Exemplo cURL:
 
-```sh
+```
 curl -X 'POST' \
-  'http://localhost:4000/product' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "title": "***",
-  "price": ***.**,
-  "review": *
+'http://localhost:4000/product' \
+-H 'accept: */*' \
+-H 'Content-Type: application/json' \
+-d '{
+"title": "Product Name",
+"price": 19.99,
+"review": 5
 }'
 ```
 
-## CURL GET BY ID METHOD
+# **Listar Todos os Produtos**📜
 
-```sh
+### GET `/product`
+
+### Exemplo cURL:
+```
 curl -X 'GET' \
-  'http://localhost:4000/product/{`ID DO PRODUTO`}' \
-  -H 'accept: */*'
+'http://localhost:4000/product' \
+-H 'accept: */*'
 ```
 
+# **Buscar Produto por ID** 🔎
 
-## CURL SEARCH BY NAME METHOD
-```sh
-curl -X 'GET' \
-  'http://localhost:4000/product/search/{`NOME DO PRODUTO QUE QUEIRA PROCURAR`}' \
-  -H 'accept: */*'
+### GET `/product/{id}`
+
+ Substitua `{id}` pelo ID do produto.
+
+### Exemplo cURL:
 ```
+curl -X 'GET' \
+'http://localhost:4000/product/1' \
+-H 'accept: */*'
+```
+# **Buscar Produto por Nome** 🔍
+
+### GET `/product/search/{name}`
+
+Substitua `{name}` pelo nome do produto.
+
+### Exemplo cURL:
+```
+curl -X 'GET' \
+'http://localhost:4000/product/search/Product%20Name' \
+-H 'accept: */*'
+```
+# **Documentação Swagger**
+
+- Swagger UI: http://localhost:4000/swagger-ui.html
+
+- OpenAPI JSON: http://localhost:4000/v3/api-docs
+
+# **Configuração do Banco de Dados**
+
+A aplicação utiliza **MySQL** como banco de dados. O arquivo `docker-compose.yml` configura um container MySQL com as seguintes credenciais padrão:
+
+- **Banco de Dados:**  `productdb`
+
+- **Usuário:** `root`
+
+- **Senha:** `password`
+
+[!CAUTION]
+Antes de implantar em produção, altere essas credenciais no arquivo `application.yml.`
