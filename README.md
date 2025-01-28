@@ -14,8 +14,8 @@ Uma API para gerenciamento de produtos, construída com ***Java 17, Spring Boot,
 
 - Recuperar um produto pelo ID
 
-[!NOTE]
-A documentação da API pode ser acessada via Swagger UI.
+>[!NOTE]
+>A documentação da API pode ser acessada via Swagger UI.
 
 # **Tecnologias Utilizadas**
 
@@ -63,8 +63,8 @@ docker-compose up --build
 
 A API estará disponível em: http://localhost:4000
 
-[!WARNING]
-Se os containers já estiverem em execução, essa ação pode sobrescrevê-los.
+>[!WARNING]
+>Se os containers já estiverem em execução, essa ação pode sobrescrevê-los.
 
 # **Endpoints da API**
 
@@ -146,5 +146,5 @@ A aplicação utiliza **MySQL** como banco de dados. O arquivo `docker-compose.y
 
 - **Senha:** `password`
 
-[!CAUTION]
-Antes de implantar em produção, altere essas credenciais no arquivo `application.yml.`
+>[!CAUTION]
+> Antes de implantar em produção, altere essas credenciais no arquivo `application.yml.`
